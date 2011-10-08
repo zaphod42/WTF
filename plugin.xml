@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.ui.IEditorInput"
+            id="org.bgprocess.WTF.contribution1"
+            nameFilter="*.*">
+         <action
+               label="Report WTF"
+               class="org.bgprocess.wtf.popup.actions.ReportWTF"
+               path="additions"
+               enablesFor="1"
+               id="org.bgprocess.WTF.report">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>
