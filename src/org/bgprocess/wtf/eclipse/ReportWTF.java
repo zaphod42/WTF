@@ -4,8 +4,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.bgprocess.wtf.http.HttpPublisher;
+import org.bgprocess.wtf.preferences.PreferenceConstants;
 import org.bgprocess.wtf.report.Reporter;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
@@ -21,9 +23,9 @@ public class ReportWTF implements IObjectActionDelegate {
 	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
 		shell = targetPart.getSite().getShell();
 		try {
-		    httpPublisher = new HttpPublisher(new URL("http://localhost:3000/wtf"));
+		    httpPublisher = new HttpPublisher(new URL(Activator.getDefault().getPreferenceStore().getString(PreferenceConstants.P_SERVER)));
 		} catch (MalformedURLException e) {
-		    e.printStackTrace();
+		    MessageDialog.openError(shell, "Invalid WTF server URL", "Error parsing the server URL: " + e.getMessage());
 		}
 	}
 

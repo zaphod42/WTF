@@ -17,5 +17,19 @@
          </action>
       </objectContribution>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.bgprocess.wtf.preferences.WTFPreferencePage"
+            id="org.bgprocess.wtf.preferences.WTFPreferencePage"
+            name="WTF Preferences">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.bgprocess.wtf.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
 
 </plugin>
