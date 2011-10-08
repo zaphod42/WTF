@@ -1,11 +1,8 @@
-package org.bgprocess.wtf.popup.actions;
+package org.bgprocess.wtf.eclipse;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.bgprocess.wtf.Activator;
-import org.bgprocess.wtf.eclipse.DialogCommentPrompt;
-import org.bgprocess.wtf.eclipse.EditorReporter;
 import org.bgprocess.wtf.http.HttpPublisher;
 import org.bgprocess.wtf.report.Reporter;
 import org.eclipse.jface.action.IAction;

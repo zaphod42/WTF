@@ -78,8 +78,8 @@ public class DialogCommentPrompt implements CommentPrompt {
 
         @Override
         protected void okPressed() {
-            super.okPressed();
             comment = commentArea.getText();
+            super.okPressed();
         }
         
         public String getValue() {

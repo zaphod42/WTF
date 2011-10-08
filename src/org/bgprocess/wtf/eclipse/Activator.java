@@ -1,4 +1,4 @@
-package org.bgprocess.wtf;
+package org.bgprocess.wtf.eclipse;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;

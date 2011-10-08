@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: WTF
 Bundle-SymbolicName: org.bgprocess.WTF; singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.bgprocess.wtf.Activator
+Bundle-Activator: org.bgprocess.wtf.eclipse.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,

@@ -10,7 +10,7 @@
             nameFilter="*.*">
          <action
                label="Report WTF"
-               class="org.bgprocess.wtf.popup.actions.ReportWTF"
+               class="org.bgprocess.wtf.eclipse.ReportWTF"
                path="additions"
                enablesFor="1"
                id="org.bgprocess.WTF.report">
