@@ -16,28 +16,32 @@ import org.eclipse.ui.IWorkbenchPart;
 
 
 public class ReportWTF implements IObjectActionDelegate {
-
 	private Shell shell;
-    private HttpPublisher httpPublisher;
 	
 	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
 		shell = targetPart.getSite().getShell();
-		try {
-		    httpPublisher = new HttpPublisher(new URL(Activator.getDefault().getPreferenceStore().getString(PreferenceConstants.P_SERVER)));
-		} catch (MalformedURLException e) {
-		    MessageDialog.openError(shell, "Invalid WTF server URL", "Error parsing the server URL: " + e.getMessage());
-		}
 	}
 
 	public void run(IAction action) {
-	    Reporter reporter = new EditorReporter(activeEditor(), new DialogCommentPrompt(shell));
-        reporter.reportTo(httpPublisher);
+	    try {
+	        Reporter reporter = new EditorReporter(activeEditor(), new DialogCommentPrompt(shell));
+	        reporter.reportTo(new HttpPublisher(serverUrl()));
+	    } catch (MalformedURLException e) {
+	        MessageDialog.openError(shell, "Invalid WTF server URL", "Error parsing the server URL: " + e.getMessage());
+	    }
+	}
+	
+	private URL serverUrl() throws MalformedURLException {
+	    return new URL(activator().getPreferenceStore().getString(PreferenceConstants.P_SERVER));
 	}
 
 	private IEditorPart activeEditor() {
-		return Activator.getDefault().getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		return activator().getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+	}
+	
+	private Activator activator() {
+	    return Activator.getDefault();
 	}
 
-	public void selectionChanged(IAction action, ISelection selection) {
-	}
+	public void selectionChanged(IAction action, ISelection selection) {}
 }
