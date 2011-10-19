@@ -14,7 +14,6 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
-
 public class ReportWTF implements IObjectActionDelegate {
 	private Shell shell;
 	
